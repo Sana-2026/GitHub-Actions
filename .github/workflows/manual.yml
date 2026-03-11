@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Enter environment name"
+        description: "Enter environment name (staging or production)"
         required: true
         default: "staging"
 
