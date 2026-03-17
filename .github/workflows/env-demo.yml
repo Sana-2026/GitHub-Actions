@@ -25,4 +25,5 @@ jobs:
             echo "Workflow level env:$APP_NAME"
             echo "Job level env: $Environment"
             echo "Step level env: $Version" 
-        
+            echo "Commit SHA: $GITHUB_SHA"
+            echo "Triggered by: $GITHUB_ACTOR"
