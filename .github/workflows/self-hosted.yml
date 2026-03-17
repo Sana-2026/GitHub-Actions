@@ -5,9 +5,12 @@ on:
 
 jobs:
   test-self-hosted:
-    runs-on: [ self-hosted, my-linux-server]
+    runs-on: [self-hosted, my-linux-runner]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Print hostname
         run: hostname
 
@@ -20,5 +23,11 @@ jobs:
           ls -l self-hosted-proof.txt
 
       - name: Verify file exists
-        run: test -f self-hosted-proof.txt && echo "File exists"
+        run: |
+          if [ -f self-hosted-proof.txt ]; then
+            echo "File exists"
+          else
+            echo "File not found"
+            exit 1
+          fi
 
